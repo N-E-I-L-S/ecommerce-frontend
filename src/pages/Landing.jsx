@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 
 export default function Landing() {
+  useEffect(()=>{
+
+    console.log(process.env.REACT_APP_BACKEND_URL)
+  },[])
   return (
     <div className='landing-page'>
       <div className="landing-div">

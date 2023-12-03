@@ -3,7 +3,7 @@ import React, { createContext, useContext, useEffect, useReducer } from 'react'
 import reducer from './ProductsFunctions';
 
 const ProductsContext = createContext();
-const url = process.env.BACKEND_URL+'/products/'
+const url = process.env.REACT_APP_BACKEND_URL+'/products/'
 export function ProductsProvider({ children }) {
     const initialstate = {
         isLoading: false,
@@ -17,6 +17,7 @@ export function ProductsProvider({ children }) {
     };
         useEffect(()=>{
             getProducts(url)
+            console.log(url)
         },[])
     const [ state, dispatch ]= useReducer(reducer, initialstate)
 

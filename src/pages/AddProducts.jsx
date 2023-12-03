@@ -15,7 +15,7 @@ export default function AddProducts() {
             return i.trim()
         })
         console.log(JSON.stringify(colorsplit))
-        fetch(process.env.BACKEND_URL+'/products/', {
+        fetch(process.env.REACT_APP_BACKEND_URL+'/products/', {
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify({
