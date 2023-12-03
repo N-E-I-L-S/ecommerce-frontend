@@ -17,7 +17,6 @@ export function ProductsProvider({ children }) {
     };
         useEffect(()=>{
             getProducts(url)
-            console.log(url)
         },[])
     const [ state, dispatch ]= useReducer(reducer, initialstate)
 
