@@ -12,9 +12,9 @@ export default function Profile() {
           <div className="profile-details">
           <t className="profile-details-1">Your Email</t> : {user.email}
           </div>
-          <NavLink to='/addproduct'>
+          {/* <NavLink to='/addproduct'>
             <button className="btn btn-success mx-1">Add Your Product</button>
-          </NavLink>
+          </NavLink> */}
           <NavLink to='/'>
             <button className="btn btn-danger" onClick={logout}>Logout</button>
           </NavLink>

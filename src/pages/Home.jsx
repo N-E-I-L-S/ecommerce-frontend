@@ -9,15 +9,15 @@ export default function Home() {
   return (
     <>
       <Navbar/>
-      <div className="home-page">      
+      <div >      
         <HeroSection/>
         <hr/>      
         <FeaturedProducts />
         <hr/>
-        <div className="view-all-products">
-      <NavLink className="td" to='/allproducts' >
-        View all products  &emsp;
-      <img className="next-arrow" src={nextArrow} alt="" />
+        <div className="px-4 py-4 w-full">
+      <NavLink to='/allproducts' className="flex w-full justify-center items-center text-xl">
+        All products &emsp;
+      <img className="w-6 aspect-[1]" src={nextArrow} alt="" />
        </NavLink>
         </div>
       </div>

@@ -7,7 +7,7 @@ import Image from "../components/Image"
 import { FaCheck } from 'react-icons/fa'
 import useCartContext from "../Context_Functions/CartContext"
 
-const url = process.env.BACKEND_URL+'/products/'
+const url = process.env.REACT_APP_BACKEND_URL+'/products'
 
 export default function OneProduct() {
   const { addToCart } = useCartContext();
@@ -36,24 +36,27 @@ export default function OneProduct() {
   return (
     <>
       <Navbar />
-      <div className="one-product-page">
-        <div className="oneproduct-image-layout">
+      <div className="flex flex-col justify-center items-center lg:pt-[10rem] lg:px-[5rem] lg:flex-row py-8">
+        <div className="w-full lg:w-[80%] flex justify-center my-8">
           <img style={{width: "50%"}} src={image} alt="" />
           {/* <ProductImage image={image} /> */}
         </div>
-        <div className="oneproduct-details-section">
-          <b>{name}</b> <br />
-          {category} <br />
-          {company} <br />
-          {stars}  <br />
+        <div className="w-[80%] text-center lg:text-left">
+          <b className="font-bold text-2xl lg:text-4xl">{name}</b> <br />
+          <p className="text-xl lg:text-2xl">{category} </p>
+          <p className="text-xl lg:text-2xl mb-2">{company} </p>
+          {stars}  
           {description} <br />
 
           {(colors || []).map((i) => {
-            return <button className={usercolor === i ? "oneproduct-color oneproduct-color-active " : "oneproduct-color "} key={i} style={{ backgroundColor: `${i}` }} onClick={() => setUserColor(i)}>
-              {usercolor === i ?  <FaCheck color={usercolor}/> : null}
+            return<>
+              
+             <button className={usercolor === i ? "oneproduct-color oneproduct-color-active " : "oneproduct-color "} key={i} style={{ backgroundColor: `${i}` }} onClick={() => setUserColor(i)}>
+              {/* {usercolor === i ?   <FaCheck color={usercolor}/> : null} */}
             </button>
+            </>
           })} 
-          <br />
+          <br /> <br/>
           <button className="oneproduct-btn" onClick={Increment}>+</button> &emsp;
           {quantity}&emsp;
           <button className="oneproduct-btn bg-red" onClick={Decrement}>-</button> <br />

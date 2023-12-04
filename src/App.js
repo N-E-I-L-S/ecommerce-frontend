@@ -10,6 +10,8 @@ import Profile from "./pages/Profile";
 import ForgotPassword from "./pages/ForgotPassword";
 import Signup from "./pages/Signup";
 import AddProducts from "./pages/AddProducts";
+import CheckoutPage from "./pages/CheckoutPage";
+import NoPage from "./pages/NoPage";
 // import PaymentCheckout from "./pages/PaymentCheckout";
 
 function App() {
@@ -17,18 +19,20 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path='/' element={<Landing />} />
-          <Route path='/home' element={<ProtectedRoute page={<Home />} />} />
+          {/* <Route path='/' element={<Landing />} /> */}
+          <Route path='/confirm' element={<ProtectedRoute page={<CheckoutPage />} />} />
+          <Route path='/' element={<Home />} />
           {/* <Route path='/' element={<Home />} /> */}
           <Route path='/login' element={<Login />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/allproducts' element={<AllProducts />} />
           <Route path='/oneproduct/:id' element={<OneProduct />} />
-          <Route path='/addproduct' element={<AddProducts />} />
+          <Route path='/admin' element={<AddProducts />} />
           {/* <Route path='/pay' element={<PaymentCheckout />} /> */}
           <Route path='/profile' element={<Profile />} />
           <Route path='/forgotpass' element={<ForgotPassword />} />
           <Route path='/signup' element={<Signup />} />
+          <Route path="*" element={<NoPage/>}/>
         </Routes>
       </Router>
     </div>
