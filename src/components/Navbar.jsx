@@ -6,7 +6,7 @@ import UserIcon from "../components/user (1).png"
 import UserAuth from '../Context_Functions/UserAuth'
 
 const navigation = [
-  { name: 'Home', href: '/', current: false },
+  { name: 'Home', href: '/', current: true },
   { name: 'All Products', href: '/allproducts', current: false },
   { name: 'Cart', href: '/cart', current: true },
   // { name: 'Calendar', href: '#', current: false },
@@ -165,10 +165,10 @@ export default function Navbar() {
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((item) => (
-                <Disclosure.Button
+                <NavLink
                   key={item.name}
                   as="a"
-                  href={item.href}
+                  to={item.href}
                   className={classNames(
                     location.pathname === item.href ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium'
@@ -176,7 +176,7 @@ export default function Navbar() {
                   aria-current={ location.pathname === item.href? 'page' : undefined}
                 >
                   {item.name}
-                </Disclosure.Button>
+                </NavLink>
               ))}
             </div>
           </Disclosure.Panel>
