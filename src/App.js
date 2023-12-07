@@ -12,6 +12,7 @@ import Signup from "./pages/Signup";
 import AddProducts from "./pages/AddProducts";
 import CheckoutPage from "./pages/CheckoutPage";
 import NoPage from "./pages/NoPage";
+import PasswordReset from "./pages/PasswordReset";
 // import PaymentCheckout from "./pages/PaymentCheckout";
 
 function App() {
@@ -24,13 +25,13 @@ function App() {
           <Route path='/' element={<Home />} />
           {/* <Route path='/' element={<Home />} /> */}
           <Route path='/login' element={<Login />} />
+          <Route path='/forgotpassword' element={<ForgotPassword />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/allproducts' element={<AllProducts />} />
           <Route path='/oneproduct/:id' element={<OneProduct />} />
           <Route path='/admin' element={<AddProducts />} />
           {/* <Route path='/pay' element={<PaymentCheckout />} /> */}
           <Route path='/profile' element={<Profile />} />
-          <Route path='/forgotpass' element={<ForgotPassword />} />
           <Route path='/signup' element={<Signup />} />
           <Route path="*" element={<NoPage/>}/>
         </Routes>

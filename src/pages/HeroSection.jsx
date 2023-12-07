@@ -8,8 +8,8 @@ export default function HeroSection() {
   if (isLoading) {
     return <>
     <div className="hero-section  items-center pt-20 flex flex-col justify-between">
-    <div className="animate-pulse w-[50vw] bg-gray-300 h-16 rounded-sm"></div>
-    <div className="animate-pulse w-[50vw] bg-gray-300 h-[75vh] rounded-md"></div>
+    <div className="animate-pulse w-[80vw] lg:w-[50vw] bg-gray-300 h-16 rounded-sm"></div>
+    <div className="animate-pulse w-[80vw] lg:w-[50vw] bg-gray-300 h-[75vh] rounded-md"></div>
     </div>
     </>
   }

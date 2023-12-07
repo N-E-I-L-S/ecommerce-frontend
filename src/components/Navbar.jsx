@@ -3,6 +3,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavLink, useLocation } from 'react-router-dom'
 import UserIcon from "../components/user (1).png"
+import UserAuth from '../Context_Functions/UserAuth'
 
 const navigation = [
   { name: 'Home', href: '/', current: false },
@@ -21,8 +22,9 @@ export default function Navbar() {
     window.location.reload()
 
   }
-
+  const {user} = UserAuth()
   const location = useLocation()
+  console.log(location.pathname==='/profile')
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -121,13 +123,36 @@ export default function Navbar() {
                       </Menu.Item> */}
                       <Menu.Item>
                         {({ active }) => (
-                          <NavLink
+                          <>
+                          {
+                            user? 
+                            location.pathname!='/profile'?
+                            <NavLink
                             to='/profile'
                             // onClick={signoutHandle()}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
+                            >
                             Sign out
                           </NavLink>
+                          :
+                          <NavLink
+                            to='/'
+                            // onClick={signoutHandle()}
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            >
+                            Home
+                          </NavLink>
+
+                          :
+                            <NavLink
+                            to='/login'
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            >
+                            Login/Signup
+                          </NavLink>
+
+                            }
+                            </>
                         )}
                       </Menu.Item>
                     </Menu.Items>

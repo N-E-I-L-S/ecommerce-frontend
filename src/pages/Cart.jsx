@@ -2,9 +2,11 @@ import { NavLink } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import useCartContext from "../Context_Functions/CartContext"
 import EmptyCart from "../components/empty-cart.png"
+import UserAuth from "../Context_Functions/UserAuth";
 
 export default function Cart() {
   const { cart, emptycart, removeItem, incrementItem, decrementItem, total_amount } = useCartContext();
+  const {user} = UserAuth()
   console.log(total_amount)
   console.log(cart.length)
   return (
@@ -18,15 +20,22 @@ export default function Cart() {
 
             {
               cart.length > 0 ?
-                <div className="flex justify-between px-4 lg:px-8">
+                <div className="flex flex-col lg:flex-row justify-between px-4 lg:px-8">
                   <NavLink to='/allproducts'>
-                    <button className="login-submit-btn no-margin" style={{ height: "fit-content" }}>
+                    <button className="login-submit-btn mb-4 lg:m-0" style={{ height: "fit-content" }}>
                       Continue Shopping
                     </button>
                   </NavLink>
-                  <NavLink to='/confirm'>
+                  {
+                    user?
+                    <NavLink to='/confirm'>
                     <button className="login-submit-btn no-margin">Checkout</button>
                   </NavLink>
+                  :
+                    <NavLink to='/login'>
+                    <button className="login-submit-btn no-margin">Login to Checkout</button>
+                  </NavLink>
+                  }
                 </div>
                 :
                 null
@@ -46,7 +55,7 @@ export default function Cart() {
                           <div className="">
                             <img src={i.image} className="h-[15vh] aspect-[1.5]" alt="" />
                           </div>
-                          <div className="px-8">
+                          <div className="px-4">
 
 
                             <div className="lg:text-lg text-md font-bold">

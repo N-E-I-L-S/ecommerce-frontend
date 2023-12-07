@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import Navbar from '../components/Navbar'
 
 export default function AddProducts() {
     const [adminpassword, setAdminPassword] = useState("")
@@ -47,6 +48,7 @@ export default function AddProducts() {
     }
     if (!isadmin) {
         return <>
+            <Navbar/>
             <div className="addproducts-page">
                 <div className="addproducts-outerdiv">
                     <div className="addproduct-div">
@@ -66,6 +68,7 @@ export default function AddProducts() {
     }
     return (
         <>
+        <Navbar/>
             <div className="addproducts-page">
                 <form >
                     <div className="addproducts-outerdiv">

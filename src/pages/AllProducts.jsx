@@ -7,13 +7,12 @@ export default function AllProducts() {
 
     const { filterproducts, all_products, sorting, filter: { text, category }, updateFilterValue, getUniqueValue, ClearFilters, filterproductnull } = useFilterContext()
 
-
     const uniqueCategory = getUniqueValue(all_products, "category");
     const uniqueCompany = getUniqueValue(all_products, "company")
     return (
         <>
             <Navbar />
-            <div className="lg:flex lg:p-8">
+            <div className="lg:flex lg:p-8 lg:pb-0">
                 <div className="lg:w-3/12 h-fit bg-[aliceblue] p-1 flex lg:flex-col justify-evenly items-baseline ">
                     <h2 className="hidden lg:block mb-4">Filters</h2>
                     <div className="">
@@ -54,16 +53,16 @@ export default function AllProducts() {
                     </div>
                     <button id="clear-btn" className="p-2 border-[2px] rounded-md text-white bg-[#a52a2a]" onClick={ClearFilters}>Clear</button>
                 </div>
-                <div className="p-2 lg:p-4">
+                <div className="p-2 lg:p-4 lg:pb-0 w-full">
                     <div className="w-full flex justify-between lg:mx-8">
                         <h2 className="hidden lg:block lg:w-fit w-0">All Products</h2>
                         <div className="filter-search text-center lg:text-right lg:w-fit w-full">
                             <form onSubmit={(e) => e.preventDefault()}>
-                                <input className="text-center lg:text-left" type="text" name="text" defaultValue={text} placeholder="Search by Name" onChange={updateFilterValue} />
+                                <input className="border-b-2 text-center lg:text-left" type="text" name="text" defaultValue={text} placeholder="Search by Name" onChange={updateFilterValue} />
                             </form>
                         </div>
                     </div>
-                    <div className="p-2 md:p-16 grid grid-cols-[repeat(2,1fr)] gap-2 lg:grid lg:grid-cols-[repeat(3,1fr)] lg:gap-6">
+                    <div className="h-[77vh] overflow-y-scroll p-2 md:p-16 grid grid-cols-[repeat(2,1fr)] gap-2 lg:grid lg:grid-cols-[repeat(3,1fr)] lg:gap-6">
                         {filterproducts.map((i) => {
                             return <Products key={i.id} {...i} />
                         })}

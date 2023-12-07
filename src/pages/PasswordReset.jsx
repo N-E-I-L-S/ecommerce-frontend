@@ -59,7 +59,7 @@ function PasswordReset() {
             {
                 successMessage ?
                     <div>
-                        <h3>Success! Your Password change successfully</h3>
+                        <h3>Success! Your Password changed successfully</h3>
                         <button
                             onClick={() => navigate('/login')}
                         >

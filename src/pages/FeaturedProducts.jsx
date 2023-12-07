@@ -6,19 +6,9 @@ export default function FeaturedProducts() {
     const { isLoading, featuredproducts } = useProducts()
     console.log(featuredproducts)
     if (isLoading) {
-        return<div className='px-12'>
-        <div className="w-[40vw] h-12 bg-gray-300 animate-pulse mb-4"></div>
-        <div 
-        // id="featured-section" 
-        className='h-[40vh] flex justify-between'>
-            <div className="bg-gray-300 h-[80%] rounded-md  w-[20%] animate-pulse ">
-            </div>
-            <div className="bg-gray-300 h-[80%] rounded-md  w-[20%]  animate-pulse ">
-            </div>
-            <div className="bg-gray-300 h-[80%] rounded-md w-[20%]  animate-pulse ">
-            </div>
+        return<div className="flex h-[100vh] w-[100vw] items-center justify-center">
+        <div className="border-gray-300 h-12 lg:h-14 aspect-square animate-spin rounded-full border-8 border-t-blue-600" />
         </div>
-            </div> 
     }
     return (
         <>

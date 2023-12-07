@@ -31,7 +31,13 @@ export default function OneProduct() {
     console.log(singleproduct)
   }, [])
   if (issingleloading)
-    return <div>...Loading</div>
+    return (
+  <>
+  <div className="flex h-[100vh] w-[100vw] items-center justify-center">
+  <div class="border-gray-300 h-12 lg:h-14 aspect-square animate-spin rounded-full border-8 border-t-blue-600" />
+  </div>
+  </>
+  )
   console.log(id)
   return (
     <>

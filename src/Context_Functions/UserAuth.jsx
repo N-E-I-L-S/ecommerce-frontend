@@ -12,7 +12,7 @@ import {
 const UserContext = createContext();
 export function UserProvider({ children }) {
 
-    const [user, setUser] = useState("loading");
+    const [user, setUser] = useState(null);
 
     function login(uname, pwd) {
         console.log(uname);
